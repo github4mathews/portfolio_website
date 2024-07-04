@@ -2,10 +2,10 @@ import streamlit as st
 import google.generativeai as gai
 import pandas as pd
 
-# "AIzaSyBhO1YbXhf9A_nCSy8fTTB-4WeLbh3CyBc"
-# api_key = st.secrets["GOOGLE_API_KEY"]
+# gai.configure(api_key="AIzaSyBhO1YbXhf9A_nCSy8fTTB-4WeLbh3CyBc")
 
-gai.configure(api_key="AIzaSyBhO1YbXhf9A_nCSy8fTTB-4WeLbh3CyBc")
+api_key = st.secrets["GOOGLE_API_KEY"]
+gai.configure(api_key=api_key)
 model = gai.GenerativeModel('gemini-1.5-flash')
 
 col1, col2 = st.columns(2)
