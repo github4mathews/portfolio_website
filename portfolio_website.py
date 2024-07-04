@@ -1,17 +1,39 @@
 import streamlit as st
 import google.generativeai as gai
+import pandas as pd
 
 # "AIzaSyBhO1YbXhf9A_nCSy8fTTB-4WeLbh3CyBc"
-api_key = st.secrets["GOOGLE_API_KEY"]
+# api_key = st.secrets["GOOGLE_API_KEY"]
 
-gai.configure(api_key=api_key)
+gai.configure(api_key="AIzaSyBhO1YbXhf9A_nCSy8fTTB-4WeLbh3CyBc")
 model = gai.GenerativeModel('gemini-1.5-flash')
 
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("Hi :wave")
-    st.title("I'm Mathews P Jacob")
+    st.write("Hi :wave")
+    st.subheader("I'm Mathews P Jacob")
+
+    col11, col12 = st.columns(2)
+
+    LinkedIn_url = 'https://www.linkedin.com/in/mathewspjacob/'
+    Instagram_url = 'https://www.linkedin.com/in/mathewspjacob/'
+    with col11:
+        st.markdown(f'<a href="{LinkedIn_url}" style="background-color:GreenYellow;">LinkedIn</a>',
+                unsafe_allow_html=True)
+    with col12:
+        st.markdown(f'<a href="{Instagram_url}" style="background-color:GreenYellow;">Instagram</a>',
+                unsafe_allow_html=True)
+
+    recipient_email = 'ms4mathews@outlook.com'
+    subject = 'Hello from Streamlit!'
+    body = 'This is the body of the email.'
+
+    mailto_link = f'mailto:{recipient_email}?subject={subject}&body={body}'
+    # st.markdown(f'Compose Email')
+
+    st.markdown(f'<a href="{mailto_link}"><button style="background-color:LightSkyBlue;">Compose Email</button></a>',
+                unsafe_allow_html=True)
 
 with col2:
     st.image("./images/18.png")
